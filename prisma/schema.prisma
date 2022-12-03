@@ -16,3 +16,17 @@ model users {
   email    String @unique
   password String
 }
+
+model records {
+  id       Int @id @default(autoincrement())
+  value    Int
+  description String
+  date String
+  type type
+  category String
+}
+
+enum type{
+  incoming
+  outgoing
+}
