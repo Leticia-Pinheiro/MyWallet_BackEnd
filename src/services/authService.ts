@@ -1,4 +1,3 @@
-// import * as validationService from "./validationService"
 import * as authRepository from "../repositories/authRepository"
 import { generateToken } from "../utils/generateToken"
 import { EncryptData }  from "../utils/bcrypt"
