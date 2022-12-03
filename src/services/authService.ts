@@ -21,7 +21,7 @@ export async function signIn(
 
     const {id} = await validateToSignIn(userData)
     const token = generateToken(id)
-    return token
+    return {token, id}
 }
 
 export async function validateToSignUp(

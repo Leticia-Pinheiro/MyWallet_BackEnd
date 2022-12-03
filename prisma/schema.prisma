@@ -19,11 +19,13 @@ model users {
 
 model records {
   id       Int @id @default(autoincrement())
+  userId   Int
   value    Int
   description String
   date String
   type type
   category String
+
 }
 
 enum type{
