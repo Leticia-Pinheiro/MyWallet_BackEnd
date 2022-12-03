@@ -1,22 +1,22 @@
-import { Router } from "express"
-import * as authController from "../controllers/recordsController"
-import verifyToken from "../middlewares/verifyToken"
-import ValidateSchema from "../middlewares/validateSchema"
-//schema
+// import { Router } from "express"
+// import * as recordsController from "../controllers/recordsController"
+// import verifyToken from "../middlewares/verifyToken"
+// import ValidateSchema from "../middlewares/validateSchema"
+// //schema
 
-const recordsRouter = Router()
+// const recordsRouter = Router()
 
-recordsRouter.post(
-	"/record",	
-    verifyToken,
-	ValidateSchema(recordSchema),
-	recordsController.createRecord
-)
+// recordsRouter.post(
+// 	"/record",	
+//     verifyToken,
+// 	ValidateSchema(recordSchema),
+// 	recordsController.createRecord
+// )
 
-recordsRouter.get(
-	"/records",	
-	verifyToken,
-	recordsController.getRecords
-)
+// recordsRouter.get(
+// 	"/records",	
+// 	verifyToken,
+// 	recordsController.getRecords
+// )
 
-export default authRouter
+// export default authRouter
