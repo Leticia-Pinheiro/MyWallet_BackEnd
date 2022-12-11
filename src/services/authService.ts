@@ -18,9 +18,9 @@ export async function signUp(
 export async function signIn(
     userData: TypeLogin){
 
-    const {id} = await validateToSignIn(userData)
+    const {id, name} = await validateToSignIn(userData)
     const token = generateToken(id)
-    return {token, id}
+    return {token, id, name}
 }
 
 export async function validateToSignUp(
