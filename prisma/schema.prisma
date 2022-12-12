@@ -23,8 +23,7 @@ model records {
   value    Int
   description String
   date String
-  type type
-  category String
+  type type  
 
 }
 
