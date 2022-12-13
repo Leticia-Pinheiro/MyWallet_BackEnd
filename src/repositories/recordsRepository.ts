@@ -14,3 +14,9 @@ export async function getRecords(
     const userData = await prisma.records.findMany({where: {userId}})
     return userData
 }
+
+export async function deleteRecord(
+    id: number){
+    
+    await prisma.records.delete({where: {id}})    
+}

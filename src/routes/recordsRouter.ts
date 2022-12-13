@@ -19,4 +19,10 @@ recordsRouter.get(
 	recordsController.getRecords
 )
 
+recordsRouter.delete(
+	"/record/:id",	
+	verifyToken,
+	recordsController.deleteRecord
+)
+
 export default recordsRouter

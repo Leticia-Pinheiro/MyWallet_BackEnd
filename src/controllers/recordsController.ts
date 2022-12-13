@@ -16,3 +16,9 @@ export async function getRecords(req: Request, res: Response){
     const records = await recordsService.getRecords(userId)
     res.send(records).status(200)
 }
+
+export async function deleteRecord(req: Request, res: Response){
+    const id : number = Number(req.params.id)
+    await recordsService.deleteRecord(id)
+    res.send('Record deleted!').status(200)
+}

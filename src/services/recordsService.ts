@@ -21,6 +21,13 @@ export async function getRecords(
     return records
 }
 
+export async function deleteRecord(
+    id: number)
+{    
+    await recordsRepository.deleteRecord(id)    
+}
+
+
 export async function validateUserId(
     userId : number
 ){    
