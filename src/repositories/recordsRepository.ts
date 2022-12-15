@@ -20,3 +20,4 @@ export async function deleteRecord(
     
     await prisma.records.delete({where: {id}})    
 }
+
