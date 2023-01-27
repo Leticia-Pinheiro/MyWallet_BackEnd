@@ -15,7 +15,6 @@ beforeEach(async () => {
 describe('POST /record', () => {
 
     it('Return status 200. Registration successfully complete', async () => {
-
         
         const {token, id} = await tokenFactory()
         const record = createNewRecord(id)        
@@ -31,6 +30,16 @@ describe('POST /record', () => {
         const result = await supertest(app).post('/record').send(record)
 
         expect(result.status).toBe(401)
+        
+    })
+
+    it('Return status 422. Invalid Input', async () => {
+
+        const {token} = await tokenFactory()
+        const value = 1000;    
+        const result = await supertest(app).post('/record').set('Authorization', `Bearer ${token}`).send({value});
+
+        expect(result.status).toBe(422)
         
     })
     
