@@ -47,6 +47,15 @@ describe('POST /record', () => {
 
 describe('GET /record', () => {
 
+    it('Return status 200. Get records by user id', async () => {
+
+        const {token, id} = await tokenFactory()
+        const result = await supertest(app).get(`/records/${id}`).send().set('Authorization', `Bearer ${token}`)         
+        
+        expect(result.status).toBe(200)
+        expect(result.body).toBeInstanceOf(Array)
+    })
+
     it('Return status 401. Absence of token', async () => {
         const result = await supertest(app).get('/records/1').send()        
         expect(result.status).toBe(401)
