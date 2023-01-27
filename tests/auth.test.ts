@@ -79,6 +79,15 @@ describe('POST /signIn', () => {
 		expect(result.status).toBe(422) 
     })   
 
+    it('Returns status 422. Invalid Input', async () => {  
+              
+        const user = createNewUser()        
+		const {email} = user
+		const result = await supertest(app).post('/signIn').send({email});		
+
+		expect(result.status).toBe(422) 
+    })
+
 })
 
 //------------------------------------------------------------------------------
