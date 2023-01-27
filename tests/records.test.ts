@@ -45,6 +45,14 @@ describe('POST /record', () => {
     
 })
 
+describe('GET /record', () => {
+
+    it('Return status 401. Absence of token', async () => {
+        const result = await supertest(app).get('/records/1').send()        
+        expect(result.status).toBe(401)
+    })
+})
+
 //------------------------------------------------------------------------------
 
 afterAll(async () => {
