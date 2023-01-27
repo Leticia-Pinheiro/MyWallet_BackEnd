@@ -1,8 +1,8 @@
 import { TypeRecord } from "../../src/utils/interfaces";
 
-const createNewRecord = () : TypeRecord => {
+const createNewRecord = (userId : number) : TypeRecord => {
     return {
-        userId: 1,
+        userId: userId,
         value: 100,
         description: 'Mercado',
         date: '11/12',

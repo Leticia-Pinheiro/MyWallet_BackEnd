@@ -1,7 +1,8 @@
 import supertest from "supertest";
 import app from "../src/app";
 import prisma from "../src/database/postgres";
-import createNewRecord from "./factories/recordFactory"
+import createNewRecord from "./factories/recordFactory";
+import tokenFactory from "./factories/tokenFactory";
 
 //------------------------------------------------------------------------------
 
@@ -12,15 +13,27 @@ beforeEach(async () => {
 //------------------------------------------------------------------------------
 
 describe('POST /record', () => {
+
+    it('Return status 200. Registration successfully complete', async () => {
+
+        
+        const {token, id} = await tokenFactory()
+        const record = createNewRecord(id)        
+        const result = await supertest(app).post('/record').set('Authorization', `Bearer ${token}`).send(record);
+
+        expect(result.status).toBe(200)
+        
+    })
+
     it('Return status 401. Absence of token', async () => {
 
-        const record = createNewRecord()
-        console.log(record)
+        const record = createNewRecord(1)        
         const result = await supertest(app).post('/record').send(record)
 
         expect(result.status).toBe(401)
         
     })
+    
 })
 
 //------------------------------------------------------------------------------
