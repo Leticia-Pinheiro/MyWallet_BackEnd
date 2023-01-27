@@ -45,6 +45,24 @@ describe('POST /signUp', () => {
 
 })
 
+
+describe('POST /signIn', () => {
+
+    it('Return status 201. Login successfully complete', async () => {
+
+        const user = createNewUser()
+        await createUser(user)
+        const {email, password} = user
+        const result = await supertest(app).post('/signIn').send({email, password})       
+        
+        expect(result.status).toBe(200)
+
+    })
+    
+    
+
+})
+
 //------------------------------------------------------------------------------
 
 afterAll(async () => {
