@@ -1,6 +1,6 @@
 import { TypeRecord } from "../../src/utils/interfaces";
 
-const createNewRecord = (userId : number) : TypeRecord => {
+const createRecord = (userId : number) : TypeRecord => {
     return {
         userId: userId,
         value: 100,
@@ -10,4 +10,4 @@ const createNewRecord = (userId : number) : TypeRecord => {
     };
 };
 
-export default createNewRecord;
+export default createRecord;
