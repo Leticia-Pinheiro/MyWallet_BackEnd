@@ -3,7 +3,6 @@ import app from "../src/app";
 import prisma from "../src/database/postgres";
 import createNewUser from "./factories/signUpFactory";
 import createUser from "./factories/userFactory";
-import createNewLogin from "./factories/signInFactory";
 
 //------------------------------------------------------------------------------
 
