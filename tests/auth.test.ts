@@ -2,6 +2,7 @@ import supertest from "supertest";
 import app from "../src/app";
 import prisma from "../src/database/postgres";
 import createNewUser from "./factories/signUpFactory";
+import createUser from "./factories/userFactory";
 import createNewLogin from "./factories/signInFactory";
 
 //------------------------------------------------------------------------------
@@ -22,6 +23,15 @@ describe('POST /signUp', () => {
         
         expect(result.status).toBe(200)
         expect(createdUser).not.toBeNull()        
+    })
+
+    it('Returns status 401. Email already registered', async () => {  
+              
+        const user = createNewUser()        
+		await createUser(user);
+		const result = await supertest(app).post('/signUp').send(user);		
+
+		expect(result.status).toBe(401) 
     })
 
 })

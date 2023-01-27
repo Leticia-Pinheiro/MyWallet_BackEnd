@@ -2,7 +2,7 @@ import prisma from '../../src/database/postgres';
 import {TypeUser} from '../../src/utils/interfaces'
 import { EncryptData } from '../../src/utils/bcrypt';
 
-const userFactory = (user: TypeUser) => {
+const createUser = (user: TypeUser) => {
 	return prisma.users.create({
 		data: {
 			...user,
@@ -11,4 +11,4 @@ const userFactory = (user: TypeUser) => {
 	});
 };
 
-export default userFactory;
+export default createUser;
