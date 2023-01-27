@@ -26,12 +26,21 @@ describe('POST /signUp', () => {
     })
 
     it('Returns status 401. Email already registered', async () => {  
-              
+
         const user = createNewUser()        
 		await createUser(user);
 		const result = await supertest(app).post('/signUp').send(user);		
 
 		expect(result.status).toBe(401) 
+    })
+
+    it('Returns status 422. Invalid Input', async () => {  
+              
+        const user = createNewUser()        
+		const {name, password} = user
+		const result = await supertest(app).post('/signUp').send({name, password});		
+
+		expect(result.status).toBe(422) 
     })
 
 })
