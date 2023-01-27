@@ -1,12 +1,14 @@
 import { faker } from "@faker-js/faker";
+import { TypeUser } from "../../src/utils/interfaces";
 
-export async function createNewUser () {
-  const user = {
-    name: "Fulana",
-    email: faker.internet.email(),
-    password: "teste12345",    
+const createNewUser = ():TypeUser => {
+  return {
+      name: 'Fulano',
+      email: faker.internet.email(),
+      password: 'senha123'
   };
-  
-  return user;
-} 
+};
+
+export default createNewUser;
+
 

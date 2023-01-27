@@ -1,5 +1,4 @@
 import { TypeRecord } from "../../src/utils/interfaces";
-import { faker } from "@faker-js/faker";
 
 const createNewRecord = () : TypeRecord => {
     return {
