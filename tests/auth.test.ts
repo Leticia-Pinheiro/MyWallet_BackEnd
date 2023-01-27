@@ -58,8 +58,17 @@ describe('POST /signIn', () => {
         expect(result.status).toBe(200)
 
     })
-    
-    
+
+    it('Returns status 404. Email not found', async () => {  
+
+        const user = createNewUser() 
+        const {email, password} = user  		
+		const result = await supertest(app).post('/signIn').send({email, password});		
+
+		expect(result.status).toBe(404) 
+    })
+
+   
 
 })
 
