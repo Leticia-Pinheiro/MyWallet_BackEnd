@@ -68,7 +68,16 @@ describe('POST /signIn', () => {
 		expect(result.status).toBe(404) 
     })
 
-   
+    it('Returns status 422. Incorrect Password', async () => {  
+
+        const user = createNewUser() 
+        await createUser(user)
+        const {email} = user 
+        const incorrectPassword = "teste321" 		
+		const result = await supertest(app).post('/signIn').send({email, incorrectPassword});		
+
+		expect(result.status).toBe(422) 
+    })   
 
 })
 
