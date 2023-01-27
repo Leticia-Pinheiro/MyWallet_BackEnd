@@ -76,6 +76,18 @@ describe('DELETE /record', () => {
         expect(result.status).toBe(200)       
         
     })
+
+    it ('Return status 401. Absence of token', async () => {
+
+        const {id} = await tokenFactory()        
+        const record = createRecord(id) 
+        const createdRecord = await createNewRecord(record)
+        const recordId = createdRecord.id
+
+        const result = await supertest(app).delete(`/record/${recordId}`).send()
+        expect(result.status).toBe(401)       
+        
+    })
 })
 
 //------------------------------------------------------------------------------
